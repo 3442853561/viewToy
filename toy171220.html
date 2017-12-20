@@ -53,7 +53,7 @@
             }
                 
             function orientationHandler(event) {   
-                var myString = event.aplha +";"+event.beta+";"+event.gamma;
+                var myString = Math.round(event.aplha) +";"+Math.round(event.beta)+";"+Math.round(event.gamma);
                 mouseY = (Math.round(event.beta)+180)/360;
                 mouseX = (Math.round(event.gamma)+90)/180;
                 globalX=(img.width-canvas.width)*mouseX;
