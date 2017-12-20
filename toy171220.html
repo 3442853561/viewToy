@@ -4,94 +4,94 @@
         <meta charset="utf-8"/>
         <meta name="author" content="刘祺"/>
         <title>刘祺的全景玩具</title>
-		<style>
-			html, body {
-				position：fixed;
-				height: 100%;
-				width: 100%;
-				margin: 0px;
-				padding: 0px;
-				overflow: hidden;
-			}
-		</style>
+        <style>
+            html, body {
+                position：fixed;
+                height: 100%;
+                width: 100%;
+                margin: 0px;
+                padding: 0px;
+                overflow: hidden;
+            }
+        </style>
     </head>
 
     <body>
-        <img id="source" src="testimg.jpg" style="display: none;"/>
-		<canvas id="myCanvas" style="display: none;"></canvas>
-		<canvas id="showCanvas" onmousemove="move(event)" width="550px" height="400px"></canvas>
-		<script>
-			var canvas = document.querySelector("#showCanvas");
-			var canvasContext = canvas.getContext("2d");
-			var globalX = 0;
-			var globalY = 0;
-			function resetCanvas() {
-				canvas.width = document.body.clientWidth;
-				canvas.height = document.body.clientHeight;
-				let _img = _canvasContext.getImageData(globalX, globalY, canvas.width, canvas.height);
-				canvasContext.putImageData(_img, 0, 0);
-				canvasContext.font="30px Arial";
-				canvasContext.textAlign="center";
-				let lineGradient = canvasContext.createLinearGradient (canvas.width/2, canvas.height-90, canvas.width/2, canvas.height-60);  
-				lineGradient.addColorStop(0, 'rgba(255, 255, 255, 0.2)');    
-				lineGradient.addColorStop(1, 'rgba(255, 255, 255, 0.8)');    
-				canvasContext.fillStyle = lineGradient;
-				canvasContext.fillText("刘祺的全景玩具",canvas.width/2,canvas.height-60);
-			}
-			window.onresize = resetCanvas();
-			resetCanvas();
-		</script>
-		<script>
-			var mouseX = 0;
-			var mouseY = 0;
-			function move(event) {
-				mouseX=event.clientX;
-				mouseY=event.clientY;
-			}
-			function mouseLoop() {
-				if(mouseX<100&&globalX>0){
-					globalX-=(100-mouseX)/10;
-					if(globalX<0){
-						globalX=0;
-					}
-				}
-				if(mouseX>canvas.width-100&&globalX<img.width-canvas.width){
-					globalX+=(100-(canvas.width-mouseX))/10;
-					if(globalX>img.width-canvas.width){
-						globalX=img.width-canvas.width;
-					}
-				}
-				if(mouseY<100&&globalY>0){
-					globalY-=(100-mouseY)/10;
-					if(globalY<0){
-						globalY=0;
-					}
-				}
-				if(mouseY>canvas.height-100&&globalY<img.height-canvas.height){
-					globalY+=(100-(canvas.height-mouseY))/10;
-					if(globalY>img.height-canvas.height){
-						globalY=img.height-canvas.height;
-					}
-				}
-				resetCanvas();
-			}
-		</script>
-		<script>
-			var timer = window.setInterval(mouseLoop,5); 
-		</script>
-		<script>
-			let _canvas = document.querySelector("#myCanvas");
-			let _canvasContext = _canvas.getContext("2d");
-			var img = document.querySelector("#source"); 
-			img.onload = function() {
-				_canvas.width = img.width;
-				_canvas.height = img.height;
-				_canvasContext.drawImage(img, 0, 0);
-				globalX = (img.width-canvas.width)/2;
-				globalY = (img.height-canvas.height)/2;
-				let _img = _canvasContext.getImageData(globalX, globalY, canvas.width, canvas.height);
-				canvasContext.putImageData(_img, 0, 0);
-			}
-		</script>
-	</body>
+        <img id="source" src="toy171220.jpg" style="display: none;"/>
+        <canvas id="myCanvas" style="display: none;"></canvas>
+        <canvas id="showCanvas" onmousemove="move(event)" width="550px" height="400px"></canvas>
+        <script>
+            var canvas = document.querySelector("#showCanvas");
+            var canvasContext = canvas.getContext("2d");
+            var globalX = 0;
+            var globalY = 0;
+            function resetCanvas() {
+                canvas.width = document.body.clientWidth;
+                canvas.height = document.body.clientHeight;
+                let _img = _canvasContext.getImageData(globalX, globalY, canvas.width, canvas.height);
+                canvasContext.putImageData(_img, 0, 0);
+                canvasContext.font="30px Arial";
+                canvasContext.textAlign="center";
+                let lineGradient = canvasContext.createLinearGradient (canvas.width/2, canvas.height-90, canvas.width/2, canvas.height-60);  
+                lineGradient.addColorStop(0, 'rgba(255, 255, 255, 0.2)');    
+                lineGradient.addColorStop(1, 'rgba(255, 255, 255, 0.8)');    
+                canvasContext.fillStyle = lineGradient;
+                canvasContext.fillText("刘祺的全景玩具",canvas.width/2,canvas.height-60);
+            }
+            window.onresize = resetCanvas();
+            resetCanvas();
+        </script>
+        <script>
+            var mouseX = 0;
+            var mouseY = 0;
+            function move(event) {
+                mouseX=event.clientX;
+                mouseY=event.clientY;
+            }
+            function mouseLoop() {
+                if(mouseX<100&&globalX>0){
+                    globalX-=(100-mouseX)/10;
+                    if(globalX<0){
+                        globalX=0;
+                    }
+                }
+                if(mouseX>canvas.width-100&&globalX<img.width-canvas.width){
+                    globalX+=(100-(canvas.width-mouseX))/10;
+                    if(globalX>img.width-canvas.width){
+                        globalX=img.width-canvas.width;
+                    }
+                }
+                if(mouseY<100&&globalY>0){
+                    globalY-=(100-mouseY)/10;
+                    if(globalY<0){
+                        globalY=0;
+                    }
+                }
+                if(mouseY>canvas.height-100&&globalY<img.height-canvas.height){
+                    globalY+=(100-(canvas.height-mouseY))/10;
+                    if(globalY>img.height-canvas.height){
+                        globalY=img.height-canvas.height;
+                    }
+                }
+                resetCanvas();
+            }
+        </script>
+        <script>
+            var timer = window.setInterval(mouseLoop,5); 
+        </script>
+        <script>
+            let _canvas = document.querySelector("#myCanvas");
+            let _canvasContext = _canvas.getContext("2d");
+            var img = document.querySelector("#source"); 
+            img.onload = function() {
+                _canvas.width = img.width;
+                _canvas.height = img.height;
+                _canvasContext.drawImage(img, 0, 0);
+                globalX = (img.width-canvas.width)/2;
+                globalY = (img.height-canvas.height)/2;
+                let _img = _canvasContext.getImageData(globalX, globalY, canvas.width, canvas.height);
+                canvasContext.putImageData(_img, 0, 0);
+            }
+        </script>
+    </body>
 </html>
