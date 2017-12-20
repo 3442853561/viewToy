@@ -53,8 +53,8 @@
             }
                 
             function orientationHandler(event) {   
-                mouseX = Math.round(event.beta)/180;
-                mouseY = Math.round(event.gamma)/180;
+                mouseY = (Math.round(event.beta)+180)/360;
+                mouseX = (Math.round(event.gamma)+90)/180;
                 globalX=(img.width-canvas.width)*mouseX;
                 globalY=(img.height-canvas.height)*mouseY;
                 resetCanvas();
