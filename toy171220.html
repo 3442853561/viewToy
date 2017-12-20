@@ -36,7 +36,7 @@
                 lineGradient.addColorStop(0, 'rgba(255, 255, 255, 0.2)');    
                 lineGradient.addColorStop(1, 'rgba(255, 255, 255, 0.8)');    
                 canvasContext.fillStyle = lineGradient;
-                canvasContext.fillText("刘祺的全景玩具",canvas.width/2,canvas.height-60);
+                canvasContext.fillText("刘祺的全景玩具"+myString,canvas.width/2,canvas.height-60);
             }
             window.onresize = resetCanvas();
             resetCanvas();
@@ -53,6 +53,7 @@
             }
                 
             function orientationHandler(event) {   
+                var myString = event.aplha +";"+event.beta+";"+event.gamma;
                 mouseY = (Math.round(event.beta)+180)/360;
                 mouseX = (Math.round(event.gamma)+90)/180;
                 globalX=(img.width-canvas.width)*mouseX;
