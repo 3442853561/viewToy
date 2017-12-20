@@ -25,9 +25,13 @@
             var canvasContext = canvas.getContext("2d");
             var globalX = 0;
             var globalY = 0;
+            var mouseX = canvas.width/2;
+            var mouseY = canvas.height/2;
             function resetCanvas() {
                 canvas.width = document.body.clientWidth;
                 canvas.height = document.body.clientHeight;
+                globalX=(img.width-canvas.width)*mouseX;
+                globalY=(img.height-canvas.height)*mouseY;
                 let _img = _canvasContext.getImageData(globalX, globalY, canvas.width, canvas.height);
                 canvasContext.putImageData(_img, 0, 0);
                 canvasContext.font="30px Arial";
@@ -42,21 +46,16 @@
             resetCanvas();
         </script>
         <script>
-            var mouseX = canvas.width/2;
-            var mouseY = canvas.height/2;
+            
             function move(event) {
                 mouseX=event.clientX/canvas.width;
                 mouseY=event.clientY/canvas.height;
-                globalX=(img.width-canvas.width)*mouseX;
-                globalY=(img.height-canvas.height)*mouseY;
                 resetCanvas();
             }
                 
             function orientationHandler(event) {   
-                mouseY = (event.beta+180)/360;
                 mouseX = (event.gamma+90)/180;
-                globalX=(img.width-canvas.width)*mouseX;
-                globalY=(img.height-canvas.height)*mouseY;
+                mouseY = (event.beta+180)/360;
                 resetCanvas();
             }  
             window.addEventListener("deviceorientation", orientationHandler, false);  
