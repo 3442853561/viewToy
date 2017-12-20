@@ -42,42 +42,24 @@
             resetCanvas();
         </script>
         <script>
-            var mouseX = 0;
-            var mouseY = 0;
+            var mouseX = canvas.width/2;
+            var mouseY = canvas.height/2;
             function move(event) {
-                mouseX=event.clientX;
-                mouseY=event.clientY;
-            }
-            function mouseLoop() {
-                if(mouseX<100&&globalX>0){
-                    globalX-=(100-mouseX)/10;
-                    if(globalX<0){
-                        globalX=0;
-                    }
-                }
-                if(mouseX>canvas.width-100&&globalX<img.width-canvas.width){
-                    globalX+=(100-(canvas.width-mouseX))/10;
-                    if(globalX>img.width-canvas.width){
-                        globalX=img.width-canvas.width;
-                    }
-                }
-                if(mouseY<100&&globalY>0){
-                    globalY-=(100-mouseY)/10;
-                    if(globalY<0){
-                        globalY=0;
-                    }
-                }
-                if(mouseY>canvas.height-100&&globalY<img.height-canvas.height){
-                    globalY+=(100-(canvas.height-mouseY))/10;
-                    if(globalY>img.height-canvas.height){
-                        globalY=img.height-canvas.height;
-                    }
-                }
+                mouseX=event.clientX/canvas.width;
+                mouseY=event.clientY/canvas.height;
+                globalX=(img.width-canvas.width)*mouseX;
+                globalY=(img.height-canvas.height)*mouseY;
                 resetCanvas();
             }
-        </script>
-        <script>
-            var timer = window.setInterval(mouseLoop,5); 
+                
+            function orientationHandler(event) {   
+                mouseX = Math.round(event.beta)/180;
+                mouseY = Math.round(event.gamma)/180;
+                globalX=(img.width-canvas.width)*mouseX;
+                globalY=(img.height-canvas.height)*mouseY;
+                resetCanvas();
+            }  
+            window.addEventListener("deviceorientation", orientationHandler, false);  
         </script>
         <script>
             let _canvas = document.querySelector("#myCanvas");
